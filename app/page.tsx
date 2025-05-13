@@ -136,7 +136,7 @@ const AnimatedHeroText = () => {
 
 // --- Main Page Component ---
 export default function PortfolioPage() {
-  const [activeSection, setActiveSection] = useState('hero'); // For potential nav highlighting
+  const [activeSection] = useState('hero'); // For potential nav highlighting
 
   const navItems = [
     { id: 'hero', label: 'Home' },
@@ -330,7 +330,7 @@ export default function PortfolioPage() {
         >
           <div className="max-w-screen-md mx-auto px-6 md:px-10 text-center">
             <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-serifAccent text-brand-charcoal mb-6">
-              Let's Connect
+              Let&apos;s Connect
             </motion.h2>
             <motion.p variants={itemVariants} transition={{delay: 0.1}} className="text-lg text-gray-700 mb-10 leading-relaxed">
               Open to discussing creative challenges, new projects, or opportunities to collaborate.
