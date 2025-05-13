@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +23,17 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-serifAccent {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Theme colors */
+:root {
+  --brand-charcoal: #333333;
+  --brand-accent: #6366f1; /* Indigo color */
+  --brand-offwhite: #f9f9f9;
+  --brand-lightgray: #e5e5e5;
 }

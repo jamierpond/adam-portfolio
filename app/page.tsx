@@ -1,3 +1,4 @@
+// bump for ci
 // app/page.tsx
 'use client';
 
@@ -6,6 +7,12 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Linkedin, Github, ArrowDown } from 'lucide-react'; // Using Github as an example social icon
 import { useState, useEffect } from 'react';
+import { Playfair_Display } from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
 
 // --- Data (Extracted from your PDF) ---
 const portfolioData = {
@@ -33,7 +40,7 @@ const portfolioData = {
       clientConcept: 'Campaign: "Know the unknown knowns."',
       description:
         "Targeting educated, centre-right readers, this campaign leverages the idea of the 'unknown known.' It's a subtle intellectual nudge, reconnecting audiences with implicit truths and fostering a sense of deeper understanding.",
-      imageUrl: '/images/telegraph-mockup.jpg', // Replace
+      imageUrl: '/campaigns/telegraph.png', // Replace with actual image path
       accentColor: 'bg-sky-700', // Example color for visual distinction if needed
       details: [
         "Strategy: Engage discerning readers with nuanced philosophical concepts.",
@@ -124,7 +131,7 @@ const AnimatedHeroText = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute text-2xl md:text-3xl font-serifAccent text-brand-accent"
+          className={`absolute text-2xl md:text-3xl ${playfair.className} text-brand-accent`}
         >
           {skills[currentIndex].text}
         </motion.span>
@@ -176,7 +183,7 @@ export default function PortfolioPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-brand-offwhite/80 backdrop-blur-md">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
           <a href="#hero" className="text-xl font-serifAccent font-semibold text-brand-charcoal hover:text-brand-accent transition-colors">
-            {portfolioData.shortName}
+            <span className={playfair.className}>{portfolioData.shortName}</span>
           </a>
           <nav className="hidden md:flex space-x-8">
             {navItems.map(item => (
@@ -212,7 +219,7 @@ export default function PortfolioPage() {
           <div className="max-w-screen-md">
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serifAccent mb-4 md:mb-6"
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${playfair.className} mb-4 md:mb-6`}
             >
               {portfolioData.name}
             </motion.h1>
@@ -253,7 +260,7 @@ export default function PortfolioPage() {
           <div className="max-w-screen-xl mx-auto px-6 md:px-10 text-center mb-12 md:mb-20">
               <motion.h2
                 initial="hidden" whileInView="visible" variants={sectionVariants} viewport={{ once: true, amount: 0.5 }}
-                className="text-3xl md:text-4xl font-bold font-serifAccent text-brand-charcoal mb-4"
+                className={`text-3xl md:text-4xl font-bold ${playfair.className} text-brand-charcoal mb-4`}
               >
                 Selected Works
               </motion.h2>
@@ -293,7 +300,7 @@ export default function PortfolioPage() {
 
                   {/* Text Content */}
                   <motion.div variants={itemVariants} transition={{delay:0.2}} className="w-full md:w-1/2 text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold font-serifAccent text-brand-charcoal mb-3">
+                    <h3 className={`text-2xl md:text-3xl font-bold ${playfair.className} text-brand-charcoal mb-3`}>
                       {project.title}
                     </h3>
                     <p className="text-sm font-medium text-brand-accent mb-4">{project.clientConcept}</p>
@@ -322,14 +329,14 @@ export default function PortfolioPage() {
         {/* Contact Section - Big Horizontal Section */}
         <motion.section
           id="contact"
-          className="w-full bg-gray-100 py-20 md:py-32" // Slightly different bg for separation
+          className="w-full bg-brand-offwhite py-20 md:py-32" // Match the main site background
           initial="hidden"
           whileInView="visible"
           variants={sectionVariants}
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="max-w-screen-md mx-auto px-6 md:px-10 text-center">
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-serifAccent text-brand-charcoal mb-6">
+            <motion.h2 variants={itemVariants} className={`text-3xl md:text-4xl font-bold ${playfair.className} text-brand-charcoal mb-6`}>
               Let&apos;s Connect
             </motion.h2>
             <motion.p variants={itemVariants} transition={{delay: 0.1}} className="text-lg text-gray-700 mb-10 leading-relaxed">
@@ -341,14 +348,14 @@ export default function PortfolioPage() {
                 href={`mailto:${portfolioData.contact.email}`}
                 className="flex items-center justify-center group text-brand-charcoal hover:text-brand-accent transition-colors"
               >
-                <Mail size={20} className="mr-3 text-gray-500 group-hover:text-brand-accent transition-colors" />
+                <Mail size={20} className="mr-3 text-brand-charcoal/70 group-hover:text-brand-accent transition-colors" />
                 <span>{portfolioData.contact.email}</span>
               </a>
               <a
                 href={`tel:${portfolioData.contact.phone.replace(/\s/g, '')}`}
                 className="flex items-center justify-center group text-brand-charcoal hover:text-brand-accent transition-colors"
               >
-                <Phone size={20} className="mr-3 text-gray-500 group-hover:text-brand-accent transition-colors" />
+                <Phone size={20} className="mr-3 text-brand-charcoal/70 group-hover:text-brand-accent transition-colors" />
                 <span>{portfolioData.contact.phone}</span>
               </a>
             </motion.div>
@@ -360,7 +367,7 @@ export default function PortfolioPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="text-gray-500 hover:text-brand-accent transition-colors"
+                  className="text-brand-charcoal/70 hover:text-brand-accent transition-colors"
                 >
                   <Linkedin size={28} />
                 </a>
@@ -371,7 +378,7 @@ export default function PortfolioPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="text-gray-500 hover:text-brand-accent transition-colors"
+                  className="text-brand-charcoal/70 hover:text-brand-accent transition-colors"
                 >
                   <Github size={28} />
                 </a>
@@ -382,10 +389,10 @@ export default function PortfolioPage() {
 
         {/* Minimalist Footer */}
         <footer className="text-center py-10 md:py-16 bg-brand-offwhite border-t border-brand-lightgray">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-700">
             &copy; {new Date().getFullYear()} {portfolioData.name}. All Rights Reserved.
           </p>
-           <p className="text-xs text-gray-400 mt-2">
+           <p className="text-xs text-gray-600 mt-2">
             Designed & Developed with a touch of minimalism.
           </p>
         </footer>
