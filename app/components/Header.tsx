@@ -15,20 +15,15 @@ interface NavItem {
   path: string;
 }
 
-// Get data from the portfolio data
-const portfolioData = {
-  shortName: 'Adam Pond', // For brevity in header
-};
-
 export default function Header() {
   const [activeSection, setActiveSection] = useState('');
   const [currentPath, setCurrentPath] = useState('');
-  
+
   // Update active section based on current path
   useEffect(() => {
     // Get current path
     setCurrentPath(window.location.pathname);
-    
+
     // Update active section based on hash if on homepage
     const handleHashChange = () => {
       const hash = window.location.hash;
@@ -38,7 +33,7 @@ export default function Header() {
         setActiveSection('hero');
       }
     };
-    
+
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -50,29 +45,29 @@ export default function Header() {
     { id: 'blog', label: 'Blog', path: '/blog' },
     { id: 'contact', label: 'Contact', path: '/#contact' },
   ];
-  
+
   // Determine if a nav item is active based on current path and section
   const isActive = (item: NavItem) => {
     if (item.id === 'blog' && currentPath.includes('/blog')) {
       return true;
     }
-    
+
     if (currentPath === '/' && item.path.includes('#')) {
       return activeSection === item.path.split('#')[1];
     }
-    
+
     if (item.id === 'home' && currentPath === '/') {
       return !activeSection || activeSection === 'hero';
     }
-    
+
     return false;
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-brand-offwhite/80 backdrop-blur-md">
       <div className="max-w-screen-xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="text-xl font-serifAccent font-semibold text-brand-charcoal hover:text-brand-accent transition-colors"
         >
           <span className={playfair.className}>Adam Pond</span>

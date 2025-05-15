@@ -20,6 +20,13 @@ const blogMetadata: Record<string, Omit<BlogPost, 'slug'>> = {
     author: 'Adam Pond',
     tags: ['Advertising', 'Marketing', 'Copywriting', 'Strategy'],
   },
+  'compare-the-meerkat-campaign-analysis': {
+    title: 'Compare The Meerkat: A Masterclass in Behavioral Economics and Brand Building',
+    date: 'May 15, 2025',
+    excerpt: 'What started as a clever play on words transformed into a cultural phenomenon that dramatically reversed the fortunes of a mid-tier price comparison website.',
+    author: 'Adam Pond',
+    tags: ['Advertising', 'Case Study', 'Brand Strategy', 'Behavioral Economics'],
+  },
   // You can add more blog posts here as they are created
 };
 
