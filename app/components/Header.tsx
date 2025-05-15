@@ -47,7 +47,7 @@ export default function Header() {
   const navItems: NavItem[] = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'projects', label: 'Work', path: '/#projects' },
-    { id: 'blog', label: 'Blog', path: '/blog/top-10-things-i-learned-studying-david-ogilvy' },
+    { id: 'blog', label: 'Blog', path: '/blog' },
     { id: 'contact', label: 'Contact', path: '/#contact' },
   ];
   
@@ -83,7 +83,7 @@ export default function Header() {
               key={item.id}
               href={item.path}
               className={`text-sm font-medium text-brand-charcoal hover:text-brand-accent transition-colors ${
-                activeSection === item.id ? 'text-brand-accent font-semibold' : ''
+                isActive(item) ? 'text-brand-accent font-semibold' : ''
               }`}
             >
               {item.label}
