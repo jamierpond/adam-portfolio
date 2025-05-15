@@ -2,7 +2,7 @@
 // app/page.tsx
 'use client';
 
-import Head from 'next/head';
+// Next.js 13+ uses metadata in layout.tsx instead of Head
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Linkedin, Github, ArrowDown } from 'lucide-react'; // Using Github as an example social icon
@@ -165,10 +165,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <Head>
-        <title>{portfolioData.name} - Creative Portfolio</title>
-        <meta name="description" content={`${portfolioData.tagline} Explore the spec portfolio of ${portfolioData.name}.`} />
-      </Head>
+      {/* Metadata is defined in layout.tsx */}
 
       <div className="min-h-screen bg-brand-offwhite text-brand-charcoal font-sans selection:bg-brand-accent selection:text-white">
 

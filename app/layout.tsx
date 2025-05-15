@@ -20,8 +20,37 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Adam Pond Portfolio",
-  description: "Creative portfolio showcasing the work of Adam Pond",
+  title: "Adam Pond | Creative Strategist & Copywriter",
+  description: "Crafting Narratives. Building Brands. Evoking Emotion. — Explore innovative campaigns and strategic brand narratives by Adam Pond.",
+  keywords: ["creative portfolio", "brand strategy", "advertising", "copywriting", "campaign development", "Adam Pond"],
+  creator: "Adam Leigh Pond",
+  authors: [{ name: "Adam Leigh Pond", url: "https://adamleighpond.com" }],
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://adamleighpond.com",
+    title: "Adam Pond | Creative Strategist & Copywriter",
+    description: "Crafting Narratives. Building Brands. Evoking Emotion.",
+    siteName: "Adam Pond Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Adam Pond | Creative Strategist & Copywriter",
+    description: "Discover compelling campaigns and brand narratives by Adam Pond",
+    creator: "@adamleighpond",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  category: "Portfolio",
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#6366f1" }],
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
