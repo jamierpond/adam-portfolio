@@ -16,8 +16,8 @@ interface BlogProps {
 
 export default function Blog({ title, author, content, lastUpdated, tags }: BlogProps) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="max-w-3xl mx-auto">
+    <main className="flex min-h-screen flex-col items-center justify-between p-10 pt-24 lg:p-24">
+      <div className="max-w-3xl mx-auto w-full">
         <h1 className={`text-4xl font-bold mb-4 ${playfair.className}`}>{title}</h1>
         
         {/* Author and metadata section */}

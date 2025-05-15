@@ -143,14 +143,6 @@ const AnimatedHeroText = () => {
 
 // --- Main Page Component ---
 export default function PortfolioPage() {
-  const [activeSection] = useState('hero'); // For potential nav highlighting
-
-  const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'projects', label: 'Work' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
   // Variants for Framer Motion
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -176,34 +168,7 @@ export default function PortfolioPage() {
       <Head>
         <title>{portfolioData.name} - Creative Portfolio</title>
         <meta name="description" content={`${portfolioData.tagline} Explore the spec portfolio of ${portfolioData.name}.`} />
-        <link rel="icon" href="/favicon.ico" /> {/* Create a favicon */}
       </Head>
-
-      {/* Minimalist Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-brand-offwhite/80 backdrop-blur-md">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-          <a href="#hero" className="text-xl font-serifAccent font-semibold text-brand-charcoal hover:text-brand-accent transition-colors">
-            <span className={playfair.className}>{portfolioData.shortName}</span>
-          </a>
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map(item => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`text-sm font-medium text-brand-charcoal hover:text-brand-accent transition-colors ${
-                  activeSection === item.id ? 'text-brand-accent font-semibold' : ''
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          {/* Basic Mobile Menu (optional, can be expanded) */}
-           <div className="md:hidden">
-             {/* Placeholder for a very minimal mobile menu icon if needed, or remove */}
-           </div>
-        </div>
-      </header>
 
       <div className="min-h-screen bg-brand-offwhite text-brand-charcoal font-sans selection:bg-brand-accent selection:text-white">
 
@@ -387,15 +352,6 @@ export default function PortfolioPage() {
           </div>
         </motion.section>
 
-        {/* Minimalist Footer */}
-        <footer className="text-center py-10 md:py-16 bg-brand-offwhite border-t border-brand-lightgray">
-          <p className="text-sm text-gray-700">
-            &copy; {new Date().getFullYear()} {portfolioData.name}. All Rights Reserved.
-          </p>
-           <p className="text-xs text-gray-600 mt-2">
-            Designed & Developed with a touch of minimalism.
-          </p>
-        </footer>
       </div>
     </>
   );
