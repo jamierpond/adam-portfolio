@@ -19,18 +19,18 @@ interface BlogCardProps {
 export default function BlogCard({ post, index }: BlogCardProps) {
   return (
     <motion.article
-      className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+      className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:shadow-lg hover:border-brand-accent/50 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
       <Link href={`/blog/${post.slug}`} className="block h-full">
         <div className="p-6">
-          <h2 className={`${playfair.className} text-xl font-bold mb-2 text-brand-charcoal hover:text-brand-accent transition-colors`}>
+          <h2 className={`${playfair.className} text-xl font-bold mb-2 text-white hover:text-brand-accent transition-colors`}>
             {post.title}
           </h2>
           
-          <div className="flex flex-wrap items-center text-sm text-gray-500 mb-3">
+          <div className="flex flex-wrap items-center text-sm text-gray-300 mb-3">
             {post.date && (
               <span className="mr-4">
                 {post.date}
@@ -43,14 +43,14 @@ export default function BlogCard({ post, index }: BlogCardProps) {
             )}
           </div>
           
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-200 mb-4">
             {post.excerpt}
           </p>
           
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-4">
               {post.tags.map((tag, i) => (
-                <span key={i} className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">
+                <span key={i} className="bg-gray-700 text-gray-200 text-xs px-2 py-1 rounded-full">
                   {tag}
                 </span>
               ))}

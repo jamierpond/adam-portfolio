@@ -15,7 +15,7 @@ export interface BlogPost {
 const blogMetadata: Record<string, Omit<BlogPost, 'slug'>> = {
   'top-10-things-i-learned-studying-david-ogilvy': {
     title: 'The Top 10 Things I Learned Studying David Ogilvy',
-    date: 'May 14, 2023',
+    date: 'May 14, 2025',
     excerpt: 'David Ogilvy, often called "The Father of Advertising," revolutionized the industry with his data-driven approach and timeless wisdom.',
     author: 'Adam Pond',
     tags: ['Advertising', 'Marketing', 'Copywriting', 'Strategy'],
@@ -29,17 +29,17 @@ const blogMetadata: Record<string, Omit<BlogPost, 'slug'>> = {
 export function getAllBlogPosts(): BlogPost[] {
   try {
     const blogDir = path.join(process.cwd(), 'app', 'blog');
-    
+
     // Read directories in the blog folder
     const directories = fs.readdirSync(blogDir, { withFileTypes: true })
-      .filter(dirent => 
-        dirent.isDirectory() && 
-        dirent.name !== 'node_modules' && 
+      .filter(dirent =>
+        dirent.isDirectory() &&
+        dirent.name !== 'node_modules' &&
         !dirent.name.startsWith('.') &&
         fs.existsSync(path.join(blogDir, dirent.name, 'page.tsx'))
       )
       .map(dirent => dirent.name);
-      
+
     // Get blog metadata
     const posts = directories.map(slug => {
       // Use predefined metadata, or create default metadata
@@ -48,13 +48,13 @@ export function getAllBlogPosts(): BlogPost[] {
         date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
         excerpt: `This is a summary of the ${slug} blog post.`,
       };
-      
+
       return {
         slug,
         ...metadata,
       };
     });
-    
+
     // Sort by date (newest first)
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {

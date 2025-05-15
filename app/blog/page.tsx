@@ -12,11 +12,11 @@ export default function BlogIndex() {
   const posts = getAllBlogPosts();
   
   return (
-    <main className="min-h-screen pt-24 pb-16 px-6 lg:px-8">
+    <main className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-brand-offwhite">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${playfair.className}`}>Blog</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${playfair.className} text-brand-charcoal`}>Blog</h1>
+          <p className="text-xl text-brand-charcoal/80 max-w-2xl mx-auto">
             Insights on advertising, creative copywriting, and brand strategy
           </p>
         </div>
