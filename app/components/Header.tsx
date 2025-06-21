@@ -19,12 +19,9 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState('');
   const [currentPath, setCurrentPath] = useState('');
 
-  // Update active section based on current path
   useEffect(() => {
-    // Get current path
     setCurrentPath(window.location.pathname);
 
-    // Update active section based on hash if on homepage
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
@@ -42,22 +39,15 @@ export default function Header() {
   const navItems: NavItem[] = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'projects', label: 'Work', path: '/#projects' },
-    { id: 'blog', label: 'Blog', path: '/blog' },
-    { id: 'contact', label: 'Contact', path: '/#contact' },
   ];
 
-  // Determine if a nav item is active based on current path and section
   const isActive = (item: NavItem) => {
-    if (item.id === 'blog' && currentPath.includes('/blog')) {
-      return true;
+    if (item.id === 'home' && currentPath === '/') {
+      return !activeSection || activeSection === 'hero';
     }
 
     if (currentPath === '/' && item.path.includes('#')) {
       return activeSection === item.path.split('#')[1];
-    }
-
-    if (item.id === 'home' && currentPath === '/') {
-      return !activeSection || activeSection === 'hero';
     }
 
     return false;
@@ -70,10 +60,10 @@ export default function Header() {
           href="/"
           className="text-xl font-serifAccent font-semibold text-brand-charcoal hover:text-brand-accent transition-colors"
         >
-          <span className={playfair.className}>Adam Pond</span>
+          <span className={playfair.className}>Adam Leigh Pond</span>
         </Link>
         <nav className="hidden md:flex space-x-8">
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <Link
               key={item.id}
               href={item.path}
@@ -85,9 +75,8 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        {/* Basic Mobile Menu (optional, can be expanded) */}
         <div className="md:hidden">
-          {/* Placeholder for a very minimal mobile menu icon if needed, or remove */}
+          {/* Optional mobile menu placeholder */}
         </div>
       </div>
     </header>
