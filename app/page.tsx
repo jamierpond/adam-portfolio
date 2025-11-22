@@ -87,3 +87,46 @@ export default function HomePage() {
 
         {/* Contact */}
         <p className="text-sm text-center mt-4">
+          <Link
+            href="mailto:adamleighpond@gmail.com"
+            className="underline hover:opacity-80"
+          >
+            adamleighpond@gmail.com
+          </Link>
+        </p>
+
+        {/* Social / Newsletter Links */}
+        <div className="flex justify-center gap-4 mt-4">
+          <Link
+            href="https://adamleighpond.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+          >
+            Substack Newsletter
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/adam-pond-a94556176/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline text-lg"
+          >
+            LinkedIn ↗
+          </Link>
+        </div>
+
+        {/* Bottom image */}
+        <div className="rounded-lg overflow-hidden shadow-md mt-6">
+          <Image
+            src="/campaigns/1735635536533.jpg"
+            alt="Painting with viewer"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+          />
+        </div>
+
+      </div>
+    </main>
+  );
+}
