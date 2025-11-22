@@ -33,7 +33,7 @@ export default function HomePage() {
         {/* Bio */}
         <div className="space-y-4 text-lg leading-relaxed">
           <p>
-            I’m a novelist. I write fiction but also post essays, book reviews, and miscellaneous thoughts on writing. My novella <em>The Slow Death of Nozomi</em> was shortlisted for the <strong>Black Spring Press: Best of the Bottom Drawer Prize</strong> in 2021. Some of my favourite writers include William S. Burroughs and Haruki Murakami. I hold an MA with Distinction in Creative Writing from the University of Kent under the supervision of Scarlett Thomas.
+            I’m a novelist. I write fiction but also post essays, book reviews, and miscellaneous thoughts on writing. My novella <em>The Slow Death of Nozomi</em> was shortlisted for the <strong>Black Spring Press: Best of the Bottom Drawer Prize</strong> in 2021. Some of my favourite writers include William S. Burroughs and Haruki Murakami. I hold an MA with Distinction in Creative Writing from the University of Kent.
           </p>
           <p>
             I am currently seeking publication for <strong>The Paper Sheep</strong>, a high-octane pastiche of Philip Marlowe-style detective fiction infused with elements of magic realism. Combining the fantastical with literary substance, it appeals to readers who want intellectually engaging yet boundary-pushing stories in the hardboiled-noir genre — think <strong>James Ellroy</strong> forced into a smoky bar with Haruki Murakami.
