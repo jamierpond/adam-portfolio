@@ -1,84 +1,85 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Playfair_Display } from 'next/font/google';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-});
-
-interface NavItem {
-  id: string;
-  label: string;
-  path: string;
-}
-
-export default function Header() {
-  const [activeSection, setActiveSection] = useState('');
-  const [currentPath, setCurrentPath] = useState('');
-
-  useEffect(() => {
-    setCurrentPath(window.location.pathname);
-
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        setActiveSection(hash.replace('#', ''));
-      } else if (window.location.pathname === '/') {
-        setActiveSection('hero');
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', path: '/' },
-    { id: 'projects', label: 'Work', path: '/#projects' },
-  ];
-
-  const isActive = (item: NavItem) => {
-    if (item.id === 'home' && currentPath === '/') {
-      return !activeSection || activeSection === 'hero';
-    }
-
-    if (currentPath === '/' && item.path.includes('#')) {
-      return activeSection === item.path.split('#')[1];
-    }
-
-    return false;
-  };
-
+export default function HomePage() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-offwhite/80 backdrop-blur-md">
-      <div className="max-w-screen-xl mx-auto px-6 md:px-10 py-4 flex justify-between items-center">
-        <Link
-          href="/"
-          className="text-xl font-serifAccent font-semibold text-brand-charcoal hover:text-brand-accent transition-colors"
-        >
-          <span className={playfair.className}>Adam Leigh Pond</span>
-        </Link>
-        <nav className="hidden md:flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.path}
-              className={`text-sm font-medium text-brand-charcoal hover:text-brand-accent transition-colors ${
-                isActive(item) ? 'text-brand-accent font-semibold' : ''
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="md:hidden">
-          {/* Optional mobile menu placeholder */}
+    <main className="min-h-screen bg-[#FFF9E5] text-[#5C3A21] flex items-center justify-center p-6 animate-fade">
+      <div className="max-w-3xl text-center space-y-8 font-sans">
+        
+        {/* Hero Image */}
+        <div className="rounded-lg overflow-hidden shadow-md">
+          <Image
+            src="/campaigns/IMG_3505.jpg" // Waseda University photo
+            alt="Adam at Waseda University, Haruki Murakami Library"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+            priority
+          />
         </div>
+
+        {/* Name */}
+        <h1 className="text-3xl font-bold">Adam Leigh Pond</h1>
+
+        {/* About / Bio */}
+        <p className="text-base leading-relaxed">
+          I’m a novelist. I write fiction but I post pretty much anything here, including essays, book reviews, and miscellaneous thoughts on writing. My novella <em>The Slow Death of Nozomi</em> was shortlisted for the <strong>Black Spring Press: Best of the Bottom Drawer Prize</strong> in 2021. Some of my favourite writers include William S. Burroughs and Haruki Murakami. I hold an MA with Distinction in Creative Writing from the University of Kent under the supervision of Scarlett Thomas.
+        </p>
+
+        <blockquote className="italic text-sm border-l-4 border-[#5C3A21] pl-4">
+          “Your humour is sharp and strange in the best way: sometimes dark, sometimes playful, and it consistently pulls the reader into your offbeat vision. The sheer imagination on display here is impressive, and it gives the work a strong and memorable identity.” – Scarlett Thomas, author of <em>The End of Mr Y</em> and <em>Sleepwalkers</em>
+        </blockquote>
+
+        {/* Novella & Substack Links */}
+        <div className="flex flex-col items-center gap-4 text-base">
+          <Link
+            href="https://adamleighpond.substack.com/p/the-slow-death-of-nozomi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white bg-[#5C3A21] px-5 py-3 rounded-lg hover:bg-[#422710] transition-colors font-semibold text-lg"
+            aria-label="Read The Slow Death of Nozomi in full on Substack"
+          >
+            Read My Novella in Full on Substack
+          </Link>
+          <Link
+            href="https://adamleighpond.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#5C3A21] underline hover:text-[#422710] transition-colors"
+            aria-label="Visit Adam Leigh Pond Substack Blog"
+          >
+            Visit My Substack Blog: Optic Nerve
+          </Link>
+        </div>
+
+        {/* Upcoming Novel */}
+        <p className="text-base leading-relaxed">
+          I am currently seeking publication for <strong>The Paper Sheep</strong>. The novel explores deadly terrorism in a high-octane pastiche of Philip Marlowe-style detective fiction, while using elements of magic realism. Combining the fantastical with literary substance, it will appeal to readers who want intellectually engaging yet boundary-pushing stories in the hardboiled-noir genre – think James Elroy forced into a smoky bar with Haruki Murakami.
+        </p>
+
+        {/* Blog Logo */}
+        <div className="rounded-lg overflow-hidden shadow-md mt-6">
+          <Image
+            src="/campaigns/assets_task_01jxyxmh8dezwttyxp8vfqy8fb_1750163222_img_2.jpg" // Optic Nerve logo
+            alt="Optic Nerve Blog Logo"
+            width={400}
+            height={200}
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* Contact */}
+        <p className="text-sm mt-4">
+          <Link
+            href="mailto:adamleighpond@gmail.com"
+            className="underline hover:text-[#422710] transition-colors"
+          >
+            adamleighpond@gmail.com
+          </Link>
+        </p>
       </div>
-    </header>
+    </main>
   );
 }
