@@ -18,7 +18,7 @@ export default function HomePage() {
         {/* Hero Image */}
         <div className="rounded-lg overflow-hidden shadow-md">
           <Image
-            src="/campaigns/IMG_3505.jpeg"
+            src="/campaigns/IMG_3505.jpg"
             alt="Adam at Waseda University, Haruki Murakami Library"
             width={1200}
             height={800}
@@ -68,23 +68,25 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Blog Logo */}
+        {/* Optic Nerve Logo as a Button */}
         <div className="text-center">
-          <Image
-            src="/campaigns/assets_task_01jxyxmh8dezwttyxp8vfqy8fb_1750163222_img_2.webp"
-            alt="Optic Nerve blog logo"
-            width={500}
-            height={300}
-            className="mx-auto w-64 h-auto mb-4"
-          />
           <Link
             href="https://adamleighpond.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg underline hover:opacity-80"
+            className="inline-block"
           >
-            Visit Optic Nerve on Substack
+            <Image
+              src="/campaigns/assets_task_01jxyxmh8dezwttyxp8vfqy8fb_1750163222_img_2.webp"
+              alt="Optic Nerve blog logo"
+              width={500}
+              height={300}
+              className="mx-auto w-64 h-auto mb-4 hover:opacity-80 transition-opacity"
+            />
           </Link>
+          <p className="text-lg underline hover:opacity-80">
+            Visit Optic Nerve on Substack
+          </p>
         </div>
 
         {/* Contact */}
