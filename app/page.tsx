@@ -1,5 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
@@ -7,17 +9,17 @@ export default function HomePage() {
       className="min-h-screen flex items-center justify-center p-6"
       style={{
         backgroundColor: "#FFF6E5", // Pale Substack-like yellow
-        color: "#3E2D19", // Brown text
+        color: "#3E2D19",           // Brown text
         fontFamily: "Georgia, serif", // Substack-style serif
       }}
     >
-      <div className="max-w-2xl space-y-10">
+      <div className="max-w-2xl space-y-10 text-center">
 
         {/* Top photo */}
         <div className="rounded-lg overflow-hidden shadow-md">
           <Image
-            src="/campaigns/waseda-library.jpg" // <-- Rename this to match your file location
-            alt="Browsing books in a library"
+            src="/campaigns/IMG_3505.jpg" // Waseda University photo
+            alt="Adam at Waseda University, Haruki Murakami Library"
             width={1200}
             height={800}
             className="w-full h-auto"
@@ -26,17 +28,15 @@ export default function HomePage() {
         </div>
 
         {/* Name */}
-        <h1 className="text-4xl font-bold text-center">
-          Adam Leigh Pond
-        </h1>
+        <h1 className="text-4xl font-bold">Adam Leigh Pond</h1>
 
         {/* Bio */}
         <div className="space-y-4 text-lg leading-relaxed">
           <p>
-            Adam is seeking publication for <strong>The Paper Sheep</strong>, a high-octane pastiche of Philip Marlowe-style detective fiction infused with elements of magic realism. By combining the fantastical with literary substance, it appeals to readers who want intellectually engaging yet boundary-pushing stories in the hardboiled noir genre. Think James Ellroy – forced into a smoky bar with Haruki Murakami.
+            I’m a novelist. I write fiction but I post pretty much anything here, including essays, book reviews, and miscellaneous thoughts on writing. My novella <em>The Slow Death of Nozomi</em> was shortlisted for the <strong>Black Spring Press: Best of the Bottom Drawer Prize</strong> in 2021. Some of my favourite writers include William S. Burroughs and Haruki Murakami. I hold an MA with Distinction in Creative Writing from the University of Kent under the supervision of Scarlett Thomas.
           </p>
           <p>
-            Adam’s novella <em>The Slow Death of Nozomi</em> was shortlisted for Black Spring Press’ <strong>Best of the Bottom Drawer Prize</strong> in 2021. He recently completed his MA in Creative Writing at the University of Kent under the supervision of Scarlett Thomas, where he was awarded a Distinction.
+            I am currently seeking publication for <strong>The Paper Sheep</strong>, a high-octane pastiche of Philip Marlowe-style detective fiction infused with elements of magic realism. By combining the fantastical with literary substance, it appeals to readers who want intellectually engaging yet boundary-pushing stories in the hardboiled noir genre. Think James Ellroy – forced into a smoky bar with Haruki Murakami.
           </p>
           <blockquote className="italic pl-4 border-l-4 border-[#3E2D19]">
             “Your humour is sharp and strange in the best way: sometimes dark, sometimes playful, and it consistently pulls the reader into your offbeat vision. The sheer imagination on display here is impressive, and it gives the work a strong and memorable identity.”
@@ -44,40 +44,34 @@ export default function HomePage() {
           </blockquote>
         </div>
 
-        {/* Highlighted Substack section */}
-        <div
-          className="p-6 rounded-lg shadow-md text-center"
-          style={{ backgroundColor: "#FFEECF" }}
-        >
-          <h2 className="text-xl font-bold mb-2">
-            Read My Work
-          </h2>
+        {/* Substack Section */}
+        <div className="p-6 rounded-lg shadow-md text-center" style={{ backgroundColor: "#FFEECF" }}>
+          <h2 className="text-xl font-bold mb-2">Read My Work</h2>
           <p className="mb-4">
-            You can read <strong>The Slow Death of Nozomi</strong> in full — along with fiction, essays, book reviews and writing notes — on my Substack:
+            You can read <strong>The Slow Death of Nozomi</strong> in full — along with fiction, essays, book reviews, and writing notes — on my Substack:
           </p>
           <Link
             href="https://adamleighpond.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline font-semibold hover:opacity-80"
+            className="underline font-semibold hover:opacity-80 block mb-1"
           >
             Visit My Substack →
           </Link>
-          <br />
           <Link
             href="https://adamleighpond.substack.com/p/the-slow-death-of-nozomi"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline block mt-1 hover:opacity-80"
+            className="underline font-semibold hover:opacity-80 block"
           >
             Read The Slow Death of Nozomi →
           </Link>
         </div>
 
-        {/* Logo and link to blog lower down */}
+        {/* Blog Logo */}
         <div className="text-center">
           <Image
-            src="/optic-nerve.webp" // place your logo in /public with this name
+            src="/campaigns/assets_task_01jxyxmh8dezwttyxp8vfqy8fb_1750163222_img_2.jpg" // Optic Nerve logo
             alt="Optic Nerve blog logo"
             width={500}
             height={300}
@@ -103,17 +97,37 @@ export default function HomePage() {
           </Link>
         </p>
 
-        {/* Links */}
-        <div className="flex justify-center gap-4 text-sm">
+        {/* Social / Links */}
+        <div className="flex justify-center gap-4 mt-4">
+          <Link
+            href="https://adamleighpond.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+          >
+            Substack Newsletter
+          </Link>
           <Link
             href="https://www.linkedin.com/in/adam-pond-a94556176/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:opacity-80"
+            className="text-blue-600 hover:underline text-lg"
           >
             LinkedIn ↗
           </Link>
         </div>
+
+        {/* Bottom Image */}
+        <div className="rounded-lg overflow-hidden shadow-md mt-6">
+          <Image
+            src="/campaigns/1735635536533.jpg"
+            alt="Painting with viewer"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+          />
+        </div>
+
       </div>
     </main>
   );
