@@ -8,9 +8,9 @@ export default function HomePage() {
     <main
       className="min-h-screen flex items-center justify-center p-6"
       style={{
-        backgroundColor: "#FFF6E5", // Pale Substack-like yellow
-        color: "#3E2D19",           // Brown text
-        fontFamily: "Georgia, serif", // Substack-style serif
+        backgroundColor: "#FFF6E5",
+        color: "#3E2D19",
+        fontFamily: "Georgia, serif",
       }}
     >
       <div className="max-w-2xl space-y-10 text-center">
